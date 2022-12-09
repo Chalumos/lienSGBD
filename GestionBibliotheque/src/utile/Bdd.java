@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class BDD {
+public class Bdd {
 	
-	private static  Connection bdd;
+	public static  Connection connexionBdd;
 	
 	
 	public static void getConnexion() {
@@ -24,10 +24,10 @@ public class BDD {
 			System.out.println("Connected!");
 			*/
 			
-			Connection connexionBdd = DriverManager.getConnection(
+			Connection connection = DriverManager.getConnection(
 			"jdbc:mysql://localhost:3306/bibliothequeTP4","root", "");
 			System.out.println("Connected!");
-			bdd =  connexionBdd;
+			connexionBdd =  connection;
 		}
 		catch (SQLException ex2) {
 			System.out.println("Erreur JDBC: "+ex2);
