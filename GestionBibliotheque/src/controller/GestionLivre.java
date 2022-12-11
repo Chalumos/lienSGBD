@@ -1,10 +1,19 @@
 package controller;
 
 public class GestionLivre {
-	public static String AjouterExemplaireLivre(String titreLivre) {
-		//LivreDAO.voirCatalogue();
-		//return null;
-		return LivreDAO.ajoutExemplaire(titreLivre.toLowerCase());
+	
+	LivreDAO livreDao;
+	
+	public GestionLivre() {
+		livreDao = new LivreDAO("Livre");
+	}
+	
+	public String ajouterExemplaireLivre(String titreLivre) {
+		return livreDao.ajoutExemplaire(titreLivre.toLowerCase());
+	}
+	
+	public String ajouterLivre(String titreLivre) {
+		return livreDao.ajouterLivre(titreLivre.toLowerCase());
 	}
 
 }
