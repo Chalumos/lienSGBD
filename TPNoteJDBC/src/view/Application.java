@@ -20,6 +20,11 @@ public class Application {
 			showMenu();
 			int choix = scanner.nextInt();
 			switch (choix) {
+			case 0: {
+				Bdd.creerJeuDeDonnee();
+				System.out.println("Jeu de donnees cree");
+				break;
+			}
 			case 1: {
 				scanner = new Scanner(System.in);
 				GestionAppreciation gestionAvis = new GestionAppreciation();
@@ -58,6 +63,7 @@ public class Application {
 	
 	private static void showMenu() {
 		System.out.println("choissiez");
+		System.out.println("0. Creation du jeu de donnees dans database cinema");
 		System.out.println("1. Affichage des avis sur les films vu par un spectateur");
 		System.out.println("2. Affichage liste films projete pour une salle ");
 		System.out.println("3. Afficher les associes en retard dans leurs prets");
