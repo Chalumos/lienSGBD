@@ -10,7 +10,7 @@ import model.Film;
 import model.Projection;
 import model.Salle;
 
-public class ProjectionDAO extends Dao{
+public class ProjectionDAO extends DAO{
 
 	public ProjectionDAO(String tableBdd) {
 		super(tableBdd);

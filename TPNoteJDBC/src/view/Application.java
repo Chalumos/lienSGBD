@@ -18,7 +18,8 @@ public class Application {
 		Bdd.getConnexion();
 		while(!fin.equals("non")) {
 			showMenu();
-			int choix = scanner.nextInt();
+			try{
+				int choix = scanner.nextInt();
 			switch (choix) {
 			case 0: {
 				Bdd.creerJeuDeDonnee();
@@ -54,6 +55,9 @@ public class Application {
 			default:
 				System.out.println("choix impossible: "+choix);
 				break;
+			}
+			}catch (Exception e) {
+				System.out.println("\nrenter un entier !");
 			}
 			scanner = new Scanner(System.in);
 			System.out.println("\nReafficher le menu ? (''non'' pour arreter)");

@@ -10,14 +10,14 @@ import java.util.Map.Entry;
 
 import utile.Bdd;
 
-public class Dao {
+public class DAO {
 	
 	private String table;
 	private Connection connexion;
 	private PreparedStatement preparedStatement;
 	private Statement statement;
 	
-	public Dao(String tableBdd) {
+	public DAO(String tableBdd) {
 		table = tableBdd;
 		connexion = Bdd.connexionBdd;
 	}

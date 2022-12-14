@@ -10,7 +10,7 @@ import model.Appreciation;
 import model.Film;
 import model.Spectateur;
 
-public class AppreciationDAO extends Dao{
+public class AppreciationDAO extends DAO{
 
 	public AppreciationDAO(String tableBdd) {
 		super(tableBdd);
