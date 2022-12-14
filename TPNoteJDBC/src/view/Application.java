@@ -6,9 +6,6 @@ import java.util.Scanner;
 import controller.GestionAppreciation;
 import controller.GestionProjection;
 import model.Appreciation;
-import controller.GestionFilm;
-import model.Appreciation;
-import model.Film;
 import model.Projection;
 import utile.Bdd;
 
@@ -16,38 +13,46 @@ public class Application {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		String fin = "";
 		
 		Bdd.getConnexion();
-		showMenu();
-		int choix = scanner.nextInt();
-		switch (choix) {
-		case 1: {
-			scanner = new Scanner(System.in);
-			GestionAppreciation gestionAvis = new GestionAppreciation();
-			System.out.println("Spectateur: ");
-			String nomSpectateur = scanner.nextLine();
-			showAppreciation(gestionAvis.afficherAvisFilm(nomSpectateur), nomSpectateur);
-			break;
-		}
+		while(!fin.equals("non")) {
+			showMenu();
+			int choix = scanner.nextInt();
+			switch (choix) {
+			case 1: {
+				scanner = new Scanner(System.in);
+				GestionAppreciation gestionAvis = new GestionAppreciation();
+				System.out.println("Spectateur: ");
+				String nomSpectateur = scanner.nextLine();
+				showAppreciation(gestionAvis.afficherAvisFilm(nomSpectateur), nomSpectateur);
+				break;
+			}
 			case 2: {
-				GestionFilm gestionFilm=new GestionFilm();
+				GestionProjection gestionProjection =new GestionProjection();
 				System.out.println("Salle: ");
 				scanner = new Scanner(System.in);
 				String nomSalle = scanner.nextLine();
-				showFilms(gestionFilm.afficherListeProjections(nomSalle),nomSalle);
+				showFilms(gestionProjection.afficherListeProjections(nomSalle),nomSalle);
 				break;
 			}
-		case 3: {
+			case 3: {
+				scanner = new Scanner(System.in);
+				GestionProjection gestionProjection = new GestionProjection();
+				System.out.println("Date pour aller voir le film:  (format jj/MM/AAAA)");
+				String date = scanner.nextLine();
+				System.out.println("Titre du film: ");
+				String titreFilm = scanner.nextLine();
+				showSallesFilm(gestionProjection.afficherSalleFilm(date, titreFilm), titreFilm, date);
+				break;
+			}
+			default:
+				System.out.println("choix impossible: "+choix);
+				break;
+			}
 			scanner = new Scanner(System.in);
-			GestionProjection gestionSalle = new GestionProjection();
-			System.out.println("Date pour aller voir le film:  (format jj/MM/AAAA)");
-			String date = scanner.nextLine();
-			System.out.println("Titre du film: ");
-			String titreFilm = scanner.nextLine();
-			showSallesFilm(gestionSalle.afficherSalleFilm(date, titreFilm), titreFilm, date);
-			break;
-		default:
-			throw new IllegalArgumentException("choix impossible: " + choix);
+			System.out.println("\nReafficher le menu ? (''non'' pour arreter)");
+			fin = scanner.nextLine();
 		}
 	}
 	
@@ -89,7 +94,7 @@ public class Application {
 		else {
 			System.out.println("Listes des salles pour aller voir "+nomFilm+" le "+date);
 			for(Projection projection : listeProjection) {
-				System.out.println("En "+projection.getSalle().getNom() +" � "+projection.getHeure());
+				System.out.println("En "+projection.getSalle().getNom() +" a "+projection.getHeure());
 			}
 		}
 	}
