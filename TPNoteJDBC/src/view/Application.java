@@ -1,11 +1,12 @@
 package view;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import controller.GestionAppreciation;
+import controller.GestionProjection;
 import model.Appreciation;
+import model.Projection;
 import utile.Bdd;
 
 public class Application {
@@ -18,23 +19,26 @@ public class Application {
 		int choix = scanner.nextInt();
 		switch (choix) {
 		case 1: {
+			scanner = new Scanner(System.in);
 			GestionAppreciation gestionAvis = new GestionAppreciation();
 			System.out.println("Spectateur: ");
-			scanner = new Scanner(System.in);
 			String nomSpectateur = scanner.nextLine();
 			showAppreciation(gestionAvis.afficherAvisFilm(nomSpectateur), nomSpectateur);
 			break;
 		}
-//		case 2: {
-//			GestionLivre controllerLivre = new GestionLivre();
-//			System.out.println("Spectateur: ");
-//			scanner = new Scanner(System.in);
-//			String nomSalle = scanner.nextLine();
-//			System.out.println(controllerLivre.ajouterExemplaireLivre(nomSalle));
-//			break;
-//		}
+		case 3: {
+			scanner = new Scanner(System.in);
+			GestionProjection gestionSalle = new GestionProjection();
+			System.out.println("Date pour aller voir le film:  (format jj/MM/AAAA)");
+			String date = scanner.nextLine();
+			System.out.println("Titre du film: ");
+			String titreFilm = scanner.nextLine();
+			showSallesFilm(gestionSalle.afficherSalleFilm(date, titreFilm), titreFilm, date);
+			
+			break;
+		}
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + choix);
+			throw new IllegalArgumentException("choix impossible: " + choix);
 		}
 	}
 	
@@ -53,6 +57,18 @@ public class Application {
 			System.out.println("Listes des Avis par film pour "+nomSpectateur);
 			for(Appreciation appreciation : listeAppreciation) {
 				System.out.println(appreciation.getFilm().getTitre()  +": "+appreciation.getNote());
+			}
+		}
+	}
+	
+	private static void showSallesFilm(List<Projection> listeProjection, String nomFilm, String date) {
+		if(listeProjection.size() <= 0) {
+			System.out.println("Il n'y a pas de projection pour "+nomFilm+" le "+date);
+		}
+		else {
+			System.out.println("Listes des salles pour aller voir "+nomFilm+" le "+date);
+			for(Projection projection : listeProjection) {
+				System.out.println("En "+projection.getSalle().getNom() +" à "+projection.getHeure());
 			}
 		}
 	}

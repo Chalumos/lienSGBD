@@ -2,7 +2,6 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,22 +26,22 @@ public class AppreciationDAO extends Dao{
 					  " JOIN spectateur ON appreciation.idSpectateur  = spectateur.id"
 					+ " JOIN film ON appreciation.idFilm = film.id");
 		
-		ResultSet resulat = find(parametres);
+		ResultSet resultat = find(parametres);
 		try {
-			while(resulat.next()) {
+			while(resultat.next()) {
 				Appreciation appreciation = new Appreciation();
 				Film film = new Film();
 				Spectateur spectateur = new Spectateur();
-				spectateur.setNom(resulat.getString("nom"));
-				spectateur.setPrenom(resulat.getString("prenom"));
-				film.setTitre(resulat.getString("titre"));
-				film.setVisaExploitation(resulat.getString("visa_exploitation"));
-				film.setRealisateur(resulat.getString("realisateur"));
-				film.setDuree(resulat.getInt("duree"));
-				film.setAnneeSortie(resulat.getDate("annee_sortie"));
+				spectateur.setNom(resultat.getString("nom"));
+				spectateur.setPrenom(resultat.getString("prenom"));
+				film.setTitre(resultat.getString("titre"));
+				film.setVisaExploitation(resultat.getString("visa_exploitation"));
+				film.setRealisateur(resultat.getString("realisateur"));
+				film.setDuree(resultat.getInt("duree"));
+				film.setAnneeSortie(resultat.getDate("annee_sortie"));
 				appreciation.setSpectateur(spectateur);
 				appreciation.setFilm(film);
-				appreciation.setNote(getNotes(resulat.getInt("note")));
+				appreciation.setNote(getNotes(resultat.getInt("note")));
 				listeAvis.add(appreciation);
 			}
 		} catch (SQLException e) {
