@@ -4,15 +4,24 @@ import java.util.ArrayList;
 
 import javax.annotation.processing.Generated;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Service {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int code;
 	private String nom;
 	private int nombreLits;
+	
+	@OneToOne
 	private Docteur directeur;
+	
+	@OneToMany
 	private ArrayList<Salle> salles;
 	
 	

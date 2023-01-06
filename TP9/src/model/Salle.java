@@ -1,10 +1,23 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Salle {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	private int num;
-	private Infirmier survellant;
 	private int nombreLits;
+	
+	@OneToOne
+	private Infirmier survellant;
+	
 	
 	public int getId() {
 		return id;
