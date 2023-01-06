@@ -1,10 +1,13 @@
 package model;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -22,7 +25,22 @@ public class Salle {
 	@OneToOne
 	private Infirmier survellant;
 	
+	@OneToMany
+	private ArrayList<Malade> malades;
 	
+	
+	public Service getService() {
+		return service;
+	}
+	public void setService(Service service) {
+		this.service = service;
+	}
+	public ArrayList<Malade> getMalades() {
+		return malades;
+	}
+	public void setMalades(ArrayList<Malade> malades) {
+		this.malades = malades;
+	}
 	public int getId() {
 		return id;
 	}
