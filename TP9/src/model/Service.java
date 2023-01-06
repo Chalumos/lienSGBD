@@ -28,6 +28,9 @@ public class Service {
 	@OneToMany
 	private ArrayList<Salle> salles;
 	
+	@ManyToOne()
+	Hopital hopitalService;
+	
 	
 	public int getCode() {
 		return code;
