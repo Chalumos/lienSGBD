@@ -19,17 +19,17 @@ public class Service {
 	private String nom;
 	private int nombreLits;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "service")
 	private ArrayList<Infirmier> infirmiers;
 	
 	@OneToOne
 	private Docteur directeur;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "service")
 	private ArrayList<Salle> salles;
 	
 	@ManyToOne()
-	Hopital hopitalService;
+	private Hopital hopitalService;
 	
 	
 	public int getCode() {

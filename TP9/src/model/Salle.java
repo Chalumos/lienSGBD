@@ -22,10 +22,10 @@ public class Salle {
 	@ManyToOne
 	private Service service;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "salle")
 	private Infirmier survellant;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "salle")
 	private ArrayList<Malade> malades;
 	
 	

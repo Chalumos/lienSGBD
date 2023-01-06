@@ -9,10 +9,10 @@ import javax.persistence.OneToOne;
 @Entity
 public class Docteur extends Employe{
 	
-	@OneToOne
+	@OneToOne(mappedBy = "directeur")
 	private Service specialite;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "docteur")
 	private ArrayList<Malade> malades;
 
 	public Service getSpecialite() {

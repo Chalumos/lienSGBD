@@ -12,10 +12,10 @@ public class Malade extends Person {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer numMalade;
 	
-	@ManyToOne
+	@ManyToOne()
 	private Salle salle;
 	
-	@ManyToOne
+	@ManyToOne()
 	private Docteur docteur;
 
 	public Integer getNumMalade() {
