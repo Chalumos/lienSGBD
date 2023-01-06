@@ -5,12 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Infirmier {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@OneToOne
+	private Salle salle;
 	
 	@ManyToOne
 	private Service service;
