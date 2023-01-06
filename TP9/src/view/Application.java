@@ -10,7 +10,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tp8");
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tp9");
 		EntityManager em = entityManagerFactory.createEntityManager();
 		
 		
