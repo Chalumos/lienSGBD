@@ -6,17 +6,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Employe extends Person {
+public class Malade extends Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer numEmploye;
+	private Integer numMalade;
 
+	public Integer getNumMalade() {
+		return numMalade;
+	}
+
+	public void setNumMalade(Integer numMalade) {
+		this.numMalade = numMalade;
+	}
 	
-	public Integer getNumEmploye() {
-		return numEmploye;
-	}
-	public void setNumEmploye(Integer numEmploye) {
-		this.numEmploye = numEmploye;
-	}
-
+	
 }
