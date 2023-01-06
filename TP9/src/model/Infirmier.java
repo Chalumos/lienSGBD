@@ -8,10 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Infirmier {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+public class Infirmier extends Employe{
 	
 	@OneToOne
 	private Salle salle;
@@ -19,16 +16,17 @@ public class Infirmier {
 	@ManyToOne
 	private Service service;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public Service getService() {
 		return service;
 	}
 	public void setService(Service service) {
 		this.service = service;
 	}
+	public Salle getSalle() {
+		return salle;
+	}
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+	
 }
