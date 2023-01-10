@@ -20,24 +20,14 @@ public class Service {
 	private String nom;
 	private int nombreLits;
 	
-<<<<<<< HEAD
 	@OneToMany(mappedBy = "serviceInfirmier")
 	private List<Infirmier> infirmiers;
-=======
-	@OneToMany(mappedBy = "service")
-	private ArrayList<Infirmier> infirmiers;
->>>>>>> a74c89da98faf6a25aa4c1b068ae8498793838bd
 	
 	@OneToOne
 	private Docteur directeur;
 	
-<<<<<<< HEAD
 	@OneToMany(mappedBy = "serviceSalle")
 	private List<Salle> salles;
-=======
-	@OneToMany(mappedBy = "service")
-	private ArrayList<Salle> salles;
->>>>>>> a74c89da98faf6a25aa4c1b068ae8498793838bd
 	
 	@ManyToOne()
 	private Hopital hopitalService;

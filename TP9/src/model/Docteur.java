@@ -14,11 +14,7 @@ public class Docteur extends Employe{
 	private Service specialite;
 	
 	@OneToMany(mappedBy = "docteur")
-<<<<<<< HEAD
 	private List<Malade> malades;
-=======
-	private ArrayList<Malade> malades;
->>>>>>> a74c89da98faf6a25aa4c1b068ae8498793838bd
 
 	public Service getSpecialite() {
 		return specialite;
