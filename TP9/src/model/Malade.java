@@ -13,7 +13,11 @@ public class Malade extends Person {
 	private Integer numMalade;
 	
 	@ManyToOne()
+<<<<<<< HEAD
 	private Salle salleMalade;
+=======
+	private Salle salle;
+>>>>>>> a74c89da98faf6a25aa4c1b068ae8498793838bd
 	
 	@ManyToOne()
 	private Docteur docteur;

@@ -23,11 +23,19 @@ public class Salle {
 	@ManyToOne
 	private Service serviceSalle;
 	
+<<<<<<< HEAD
 	@OneToOne(mappedBy = "salleInfirmier")
 	private Infirmier surveillant;
 	
 	@OneToMany(mappedBy = "salleMalade")
 	private List<Malade> malades;
+=======
+	@OneToOne(mappedBy = "salle")
+	private Infirmier survellant;
+	
+	@OneToMany(mappedBy = "salle")
+	private ArrayList<Malade> malades;
+>>>>>>> a74c89da98faf6a25aa4c1b068ae8498793838bd
 	
 	
 	public Service getService() {
