@@ -11,22 +11,22 @@ import javax.persistence.OneToOne;
 public class Infirmier extends Employe{
 	
 	@OneToOne
-	private Salle salle;
+	private Salle salleInfirmier;
 	
 	@ManyToOne
-	private Service service;
+	private Service serviceInfirmier;
 	
 	public Service getService() {
-		return service;
+		return serviceInfirmier;
 	}
 	public void setService(Service service) {
-		this.service = service;
+		this.serviceInfirmier = service;
 	}
 	public Salle getSalle() {
-		return salle;
+		return salleInfirmier;
 	}
 	public void setSalle(Salle salle) {
-		this.salle = salle;
+		this.salleInfirmier = salle;
 	}
 	
 }

@@ -8,14 +8,14 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Malade extends Person {
-	@Id
+//	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer numMalade;
 	
-	@ManyToOne
-	private Salle salle;
+	@ManyToOne()
+	private Salle salleMalade;
 	
-	@ManyToOne
+	@ManyToOne()
 	private Docteur docteur;
 
 	public Integer getNumMalade() {
@@ -27,11 +27,11 @@ public class Malade extends Person {
 	}
 
 	public Salle getSalle() {
-		return salle;
+		return salleMalade;
 	}
 
 	public void setSalle(Salle salle) {
-		this.salle = salle;
+		this.salleMalade = salle;
 	}
 
 	public Docteur getDocteur() {

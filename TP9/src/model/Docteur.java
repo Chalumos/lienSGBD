@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -9,11 +10,11 @@ import javax.persistence.OneToOne;
 @Entity
 public class Docteur extends Employe{
 	
-	@OneToOne
+	@OneToOne(mappedBy = "directeur")
 	private Service specialite;
 	
-	@OneToMany
-	private ArrayList<Malade> malades;
+	@OneToMany(mappedBy = "docteur")
+	private List<Malade> malades;
 
 	public Service getSpecialite() {
 		return specialite;
@@ -23,13 +24,20 @@ public class Docteur extends Employe{
 		this.specialite = specialite;
 	}
 
-	public ArrayList<Malade> getMalades() {
+	public List<Malade> getMalades() {
 		return malades;
 	}
 
-	public void setMalades(ArrayList<Malade> malades) {
+	public void setMalades(List<Malade> malades) {
 		this.malades = malades;
 	}
+
+	@Override
+	public String toString() {
+		return this.getNom();
+	}
+	
+	
 	
 	
 	

@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.processing.Generated;
 import javax.persistence.Entity;
@@ -19,17 +20,17 @@ public class Service {
 	private String nom;
 	private int nombreLits;
 	
-	@OneToMany
-	private ArrayList<Infirmier> infirmiers;
+	@OneToMany(mappedBy = "serviceInfirmier")
+	private List<Infirmier> infirmiers;
 	
 	@OneToOne
 	private Docteur directeur;
 	
-	@OneToMany
-	private ArrayList<Salle> salles;
+	@OneToMany(mappedBy = "serviceSalle")
+	private List<Salle> salles;
 	
 	@ManyToOne()
-	Hopital hopitalService;
+	private Hopital hopitalService;
 	
 	
 	public int getCode() {
@@ -56,10 +57,10 @@ public class Service {
 	public void setDirecteur(Docteur directeur) {
 		this.directeur = directeur;
 	}
-	public ArrayList<Salle> getSalles() {
+	public List<Salle> getSalles() {
 		return salles;
 	}
-	public void setSalles(ArrayList<Salle> salles) {
+	public void setSalles(List<Salle> salles) {
 		this.salles = salles;
 	}
 	

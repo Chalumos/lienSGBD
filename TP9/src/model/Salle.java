@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,25 +21,25 @@ public class Salle {
 	private int nombreLits;
 	
 	@ManyToOne
-	private Service service;
+	private Service serviceSalle;
 	
-	@OneToOne
-	private Infirmier survellant;
+	@OneToOne(mappedBy = "salleInfirmier")
+	private Infirmier surveillant;
 	
-	@OneToMany
-	private ArrayList<Malade> malades;
+	@OneToMany(mappedBy = "salleMalade")
+	private List<Malade> malades;
 	
 	
 	public Service getService() {
-		return service;
+		return serviceSalle;
 	}
 	public void setService(Service service) {
-		this.service = service;
+		this.serviceSalle = service;
 	}
-	public ArrayList<Malade> getMalades() {
+	public List<Malade> getMalades() {
 		return malades;
 	}
-	public void setMalades(ArrayList<Malade> malades) {
+	public void setMalades(List<Malade> malades) {
 		this.malades = malades;
 	}
 	public int getId() {
@@ -54,10 +55,10 @@ public class Salle {
 		this.num = num;
 	}
 	public Infirmier getSurvellant() {
-		return survellant;
+		return surveillant;
 	}
 	public void setSurvellant(Infirmier survellant) {
-		this.survellant = survellant;
+		this.surveillant = survellant;
 	}
 	public int getNombreLits() {
 		return nombreLits;
